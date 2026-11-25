@@ -21,6 +21,7 @@ import {
   HardDrive,
   Info,
   SlidersHorizontal,
+  Download,
 } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 
@@ -252,6 +253,18 @@ export function AgentTable({
             <RefreshCw className={`w-3.5 h-3.5 text-[#6B7280] ${loading ? 'animate-spin text-[#2F6BFF]' : ''}`} />
             <span className="hidden sm:inline">Refresh</span>
           </button>
+
+          {/* Download Print Agent */}
+          <a
+            href="https://github.com/alanagusnawan/RSCPrinting/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg bg-white hover:bg-[#F0FDF4] text-[#15803D] border border-[#BBF7D0] shadow-xs active:scale-98 transition-all"
+            title="Download RSC Print Agent Service dari GitHub Release"
+          >
+            <Download className="w-3.5 h-3.5 text-[#16A34A]" />
+            <span>Download Agent</span>
+          </a>
 
           {/* Primary Action Button */}
           <button

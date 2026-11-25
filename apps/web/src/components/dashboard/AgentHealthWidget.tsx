@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, AlertTriangle, CheckCircle2, Laptop } from 'lucide-react';
+import { Activity, AlertTriangle, CheckCircle2, Laptop, Download, ExternalLink } from 'lucide-react';
 import { AgentItem } from './AgentTable';
 
 interface AgentHealthWidgetProps {
@@ -61,6 +61,31 @@ export function AgentHealthWidget({ agents }: AgentHealthWidgetProps) {
           </div>
         </div>
       )}
+
+      {/* Download Agent Installer Box */}
+      <div className="p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold text-[#1E293B] flex items-center gap-1.5">
+            <Download className="w-3.5 h-3.5 text-[#2F6BFF]" />
+            RSC Print Agent
+          </span>
+          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#E2E8F0] text-[#475569]">
+            Release
+          </span>
+        </div>
+        <p className="text-[11px] text-[#64748B] leading-relaxed">
+          Install service ini di PC/komputer kasir agar printer terdeteksi otomatis di sistem reporting.
+        </p>
+        <a
+          href="https://github.com/alanagusnawan/RSCPrinting/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center justify-center gap-1.5 w-full py-1.5 px-3 rounded-lg bg-[#2F6BFF] hover:bg-[#1F55E0] text-white text-xs font-medium shadow-2xs transition-colors"
+        >
+          <span>Download Installer</span>
+          <ExternalLink className="w-3 h-3 opacity-80" />
+        </a>
+      </div>
     </div>
   );
 }

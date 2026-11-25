@@ -7,6 +7,12 @@ const nextConfig = {
     '@rsc/reporting-engine',
     '@rsc/takumi-renderer',
   ],
+  allowedDevOrigins: [
+    '200.200.100.148',
+    '200.200.100.148:5499',
+    'http://200.200.100.148',
+    'http://200.200.100.148:5499',
+  ],
 };
 
 module.exports = nextConfig;

@@ -10,9 +10,18 @@ async function bootstrap() {
   const logger = new Logger('Bootstrap');
   const app = await NestFactory.create(AppModule);
 
-  const corsOrigins = process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:5499', 'http://localhost:3000'];
+  // Support regex or array for CORS or allow all if wildcard
+  const rawCors = process.env.CORS_ORIGINS;
+  let corsOrigin: any = ['http://localhost:5499', 'http://localhost:3000'];
+  if (rawCors === '*' || !rawCors) {
+    // If not specified or wildcard, allow any origin in local/LAN setups
+    corsOrigin = true;
+  } else {
+    corsOrigin = rawCors.split(',').map((o) => o.trim());
+  }
+
   app.enableCors({
-    origin: corsOrigins,
+    origin: corsOrigin,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });

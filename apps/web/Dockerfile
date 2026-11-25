@@ -33,7 +33,7 @@ RUN pnpm --filter @rsc/web build
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=5499
 
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
@@ -47,7 +47,7 @@ COPY --from=builder /app/apps/web ./apps/web
 
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 5499
 
 WORKDIR /app/apps/web
-CMD ["npx", "next", "start", "-p", "3000"]
+CMD ["npx", "next", "start", "-p", "5499"]

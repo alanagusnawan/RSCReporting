@@ -1,0 +1,14 @@
+node_modules
+.turbo
+dist
+.next
+out
+coverage
+*.log
+.DS_Store
+.env
+.env.local
+.env.production
+.opencode/
+goals/
+apps/api/storage_artifacts/

@@ -1,0 +1,27 @@
+{
+  "name": "@rsc/takumi-renderer",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@rsc/expression-engine": "workspace:*",
+    "@rsc/report-schema": "workspace:*",
+    "@rsc/reporting-engine": "workspace:*",
+    "@takumi-rs/helpers": "^2.18.2",
+    "takumi-pdf": "^0.18.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.0.10",
+    "react": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}

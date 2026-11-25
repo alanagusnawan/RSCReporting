@@ -88,10 +88,11 @@ export function RegisterPrinterModal({ isOpen, onClose, defaultAgentId, onSucces
           }
         }
       } else {
-        setError('Gagal mengambil daftar Print Agent dari server.');
+        setError(`Gagal mengambil daftar Print Agent dari server (HTTP ${res.status}).`);
       }
-    } catch {
-      setError('Koneksi ke backend server gagal.');
+    } catch (err: any) {
+      const targetUrl = `${getApiBaseUrl()}/api/v1/printers/agents`;
+      setError(`Koneksi ke backend server gagal (${targetUrl}): ${err?.message || 'Network Error'}`);
     } finally {
       setLoadingAgents(false);
     }
